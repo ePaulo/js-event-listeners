@@ -1,0 +1,46 @@
+/* @import '/example1/example1.css'; */
+/* @import '/example2/example2.css'; */
+/* @import '/example3/example3.css'; */
+/* @import '/example4/example4.css'; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.example-title {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.parent {
+  margin: 5px 10px;
+  border: 2px solid #703e3e;
+  background-color: #e75050;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.child {
+  margin: 3px;
+  padding: 0.25rem;
+  border: 2px solid #666;
+  background-color: #f0f0f0;
+  font-size: 1.1rem;
+}
+
+hr {
+  margin: 10px;
+  border: 1px solid #bbb;
+}

@@ -2,7 +2,7 @@ export default function example5(app) {
   app.insertAdjacentHTML(
     'beforeend',
     `
-    <h2 class="example-title">Ex.5: removeEventListener</h2>
+    <h2 class="example-title">5) Removing event listeners</h2>
     <div class="parent flex" id="ex5-parent">Parent w/ listener
       <button type="button" class="change-bg">change bg</button>
       <button type="button" class="remove-listener">remove listener</button>
@@ -17,9 +17,9 @@ export default function example5(app) {
   const changeBg = document.querySelector('.change-bg')
   const removeListener = document.querySelector('.remove-listener')
 
-  parent.addEventListener('click', onParentClick)
+  parent.addEventListener('click', onParentClick5)
 
-  function onParentClick(e) {
+  function onParentClick5(e) {
     console.log('Ex.5 Parent clicked')
   }
 
@@ -32,6 +32,6 @@ export default function example5(app) {
   })
 
   removeListener.addEventListener('click', function (e) {
-    parent.removeEventListener('click', onParentClick)
+    parent.removeEventListener('click', onParentClick5)
   })
 }

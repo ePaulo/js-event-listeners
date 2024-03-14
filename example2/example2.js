@@ -2,7 +2,7 @@ export default function example2(app) {
   app.insertAdjacentHTML(
     'beforeend',
     `
-    <h2 class="example-title">Ex.2: event bubbling</h2>
+    <h2 class="example-title">2) Event bubbling</h2>
     <div class="parent flex" id="ex2-parent">Parent w/ listener
       <button type="button" class="child" id="ex2-child">child w/ listener</button>
     </div>
@@ -10,9 +10,11 @@ export default function example2(app) {
     `
   )
 
+  // Event bubbling is the process of an event "bubbling" up from the target element to the parent element. This is the default behavior of events in JavaScript. The following code demonstrates event bubbling.
+
   document.getElementById('ex2-parent').addEventListener(
     // 'dblclick',
-    'click',
+    'dblclick',
     function (e) {
       console.log('Ex.2 Parent clicked')
       console.log(e)
@@ -24,13 +26,13 @@ export default function example2(app) {
       console.log('1st element: ', e.target.firstElementChild ?? 'none')
       console.log('1st element id: ', e.target.firstElementChild?.id ?? 'n/a')
     },
-    { capture: false }
+    false
   )
 
   document.getElementById('ex2-child').addEventListener(
     'click',
     function (e) {
-      e.stopPropagation()
+      // e.stopPropagation()
       console.log('Ex.2 Child clicked')
       console.log(e)
       console.log('e type: ', e.type)
@@ -40,11 +42,5 @@ export default function example2(app) {
     { capture: false }
   )
 
-  // In the above code...
-  // - The parent element has a double-click event listener that logs a message to the console when the parent element is double-clicked.
-  // - The child element has a click event listener that logs a message to the console when the child element is single-clicked.
-  // - The child element's event listener also calls the stopPropagation method on the event object, which prevents the single-click event from bubbling up to the parent element.
-  // - Both event listeners log the event object to the console, then specific information such as the event type, the event target, and whether the event bubbles.
-  // - The parent event listener also logs the target and id info for the child element.
-  // - The child event listener also logs whether it "bubbles" events to the parent, which it does. So "stopPropagation()" only prevents the event the child is listening for, ie. a single-click, from "bubbling" to the parent.
+  // In the above code, the parent element has an event listener for the click event. The child element also has an event listener for the click event. When the child element is clicked, the event bubbles up to the parent element, which also logs a message to the console.
 }

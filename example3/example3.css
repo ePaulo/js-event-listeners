@@ -1,0 +1,14 @@
+div#ex3-parent {
+  button > span {
+    padding: 0.25em 0.5em;
+    background-color: lightgreen;
+    font-style: italic;
+  }
+
+  span {
+    padding: 0.25em 0.5em;
+    background-color: lightgreen;
+    font-style: italic;
+    font-size: 0.8rem;
+  }
+}

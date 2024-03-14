@@ -1,6 +1,6 @@
 /* @import '/example1/example1.css'; */
 /* @import '/example2/example2.css'; */
-/* @import '/example3/example3.css'; */
+@import '/example3/example3.css';
 /* @import '/example4/example4.css'; */
 
 * {

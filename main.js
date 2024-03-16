@@ -10,6 +10,9 @@ import example7 from './example7/example7'
 
 const app = document.querySelector('#app')
 
+// For each sub-section, open the associated example.js 
+// JavaScript file and review the comments and js code.
+
 // 1) Intro to Event Listener
 example1(app)
 

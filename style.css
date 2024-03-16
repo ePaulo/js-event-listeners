@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+button {
+  padding: 3px;
+}
+
 .example-title {
   margin-left: 10px;
   font-size: 1.2rem;

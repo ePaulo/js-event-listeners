@@ -1,8 +1,10 @@
+// This example demonstrates how to add event listeners to multiple child elements. It also demonstrates how to use the "once" property to specify whether the event listener should be executed once and then removed.
+
 export default function example4(app) {
   app.insertAdjacentHTML(
     'beforeend',
     `
-    <h2 class="example-title">4) Multiple child elements</h2>
+    <h2 class="example-title">4) Multiple Child Elements</h2>
     <div class="parent flex" id="ex4-parent">
       <p>Parent w/ listener</p>
 
@@ -18,22 +20,29 @@ export default function example4(app) {
     `
   )
 
-  // The following code adds an event listener to the parent element. When the mouse enters parent element, the event listener logs a message to the console. The event listener is set to only run once.
+  // The following code adds two event listeners to the parent element...together they "listen" for the mouse to enter and leave the parent element. In each case, the listener function was set to run only once.
 
-  /**
-Note from Bootcamp student...Lucie
-Based on MDN docs... regarding the usage of "removeEventListener" vs setting the eventListener option { once: true }... when using "once: true", the listener may be invoked at most once (after being added)...afterwhich the listener will be removed automatically. Note, the default setting for the "once" option is false.
-*/
+  // The (optional) third parameter is an object with the "once" set to "true". The "once" property specifies whether the event listener should be executed once and then removed.
 
-  document
-    .getElementById('ex4-parent')
-    .addEventListener('mouseenter', onParentClick4, { once: true })
+  document.getElementById('ex4-parent').addEventListener(
+    'mouseenter',
+    function (e) {
+      console.log('Ex.4 Parent space entered')
+    },
+    { once: true }
+  )
 
-  function onParentClick4(e) {
-    console.log('Ex.4 Parent space entered')
-  }
+  document.getElementById('ex4-parent').addEventListener(
+    'mouseleave',
+    function (e) {
+      console.log('Ex.4 Parent space left')
+    },
+    { once: true }
+  )
 
-  // The following code adds an event listener to each child element. When a child element is clicked, the event listener logs a message to the console.
+  // The following code adds a separate event listener to each child element. This is the simplest way to add an event listener to multiple elements. In part 6) "Using querySelectorAll", a more efficient way of adding individual event listeners to similar elements will be presented.
+
+  // Notice that the event listener function is the same for each child element. This is a good example of how to use a single function to handle multiple events.
 
   document.getElementById('ex4-child1').addEventListener('click', onChildClick4)
 

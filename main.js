@@ -10,16 +10,23 @@ import example7 from './example7/example7'
 
 const app = document.querySelector('#app')
 
+// 1) Intro to Event Listener
 example1(app)
 
+// 2) Event bubbling
 example2(app)
 
+// 3) Focused event listener
 example3(app)
 
+// 4) Multiple child elements
 example4(app)
 
+// 5) Removing event listeners
 example5(app)
 
+// 6) Using querySelectorAll
 example6(app)
 
+// 7) Different event types
 example7(app)

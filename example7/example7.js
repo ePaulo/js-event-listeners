@@ -1,19 +1,24 @@
+// This example demonstrates how to use the addEventListener method to add different types of event listeners to a parent element and its child element.
+
 export default function example7(app) {
   // create example with different types of event listeners
   app.insertAdjacentHTML(
     'beforeend',
     `
-    <h2 class="example-title">7) Different event types</h2>
+    <h2 class="example-title">7) Different Types of Events</h2>
     <div 
       class="parent flex" 
       id="ex7-parent"
+      title="Parent div element"
     >
-      <p>Parent</p>
+
+      <p title="Parent p element">Parent</p>
       <input 
         type="text" 
         class="child" 
         id="ex7-child1"
         placeholder="child input element"
+        title="Child input element"
       />
 
     </div>
@@ -21,41 +26,47 @@ export default function example7(app) {
     `
   )
 
-  // Different types of event listeners...
-  // Click events: click, dblclick
-  // Focus events: focus, blur
-  // Form events: submit, reset, change, select
-  // Input events: input, cut, copy, paste
-  // Keyboard events: keypress, keydown, keyup
-  // Mouse events: mouseenter (mouseover), mouseleave (mouseout), mousedown, mouseup, mousemove
-  // note: mouseover and mouseout are similar to mouseenter and mouseleave, but the latter two do not bubble
+  // Common types of event listeners...
+  // Click events: click, dblclick.
+  // Focus events: focus, blur.
+  // Form events: submit, reset, change, select.
+  // Keyboard events: keypress, keydown, keyup.
+  // Mouse events: mouseenter (mouseover), mouseleave (mouseout), mousedown, mouseup, mousemove.
+  // Note: mouseover and mouseout are similar to mouseenter and mouseleave, but the latter two do not bubble.
 
-  const parent = document.getElementById('ex7-parent')
+  const parentEl = document.getElementById('ex7-parent')
+  const inputEl = document.getElementById('ex7-child1')
 
-  parent.addEventListener('mouseenter', onParentMouseEnter7)
+  parentEl.addEventListener('mouseenter', onParentMouseEnter7)
   function onParentMouseEnter7(e) {
-    console.log('mouseenter: ', e.target.id)
-    document.getElementById('ex7-child1').focus()
+    inputEl.focus()
+    console.log('Focus added to input box')
   }
 
-  // on parent leave, remove focus from child
-  parent.addEventListener('mouseleave', onParentMouseLeave7)
+  parentEl.addEventListener('mouseleave', onParentMouseLeave7)
   function onParentMouseLeave7(e) {
-    console.log('mouseleave: ', e.target.id)
-    document.getElementById('ex7-child1').blur()
+    inputEl.blur()
+    console.log('Fucus removed')
   }
 
-  parent.addEventListener('mousedown', onParentMousedown7)
-  // parent.addEventListener('mouseup', onParentMouseup7)
-  // parent.addEventListener('mousemove', onParentMousemove7)
+  parentEl.addEventListener('mousedown', onParentMousedown7)
   function onParentMousedown7(e) {
-    console.log('mousedown: ', e.target.id)
+    console.log('mousedown event on: ', e.target.title)
   }
 
-  parent.addEventListener('keypress', onParentKeypress7)
-  // parent.addEventListener('keydown', onParentKeydown7)
-  // parent.addEventListener('keyup', onParentKeyup7)
+  parentEl.addEventListener('keypress', onParentKeypress7)
   function onParentKeypress7(e) {
     console.log('keypress: ', e.key)
   }
+
+  // Notice the "keypress" event only works when the input element has focus... even though the event listener is on the parent element.
+
+  // Other events include...
+  // Input events: input, cut, copy, paste.
+  // Touch events: touchstart, touchend, touchmove, touchcancel.
+  // Drag events: drag, dragstart, dragend, dragenter, dragleave, dragover, drop.
+  // Scroll events: scroll.
+  // Media events: play, pause, volumechange, durationchange, ended.
+  // Animation events: animationstart, animationend, animationiteration.
+  // Transition events: transitionend.
 }
